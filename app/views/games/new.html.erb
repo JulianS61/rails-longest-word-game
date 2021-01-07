@@ -1,0 +1,17 @@
+<ul>
+  <% @letters.each do |letter| %>
+    <li>
+      <%= letter.upcase %>
+    </li>
+  <% end %>
+</ul>
+
+<h3>Write the longest word with those letters</h3>
+<form action="/score" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <% @letters.each do |letter| %>
+    <%= hidden_field_tag("letters[]", letter) %>
+  <% end %>
+  <input type="text" id="word" name="word">
+  <input type="submit" value="Check!">
+</form>

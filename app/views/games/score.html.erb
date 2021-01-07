@@ -1,0 +1,17 @@
+<h1>That's the score</h1>
+
+<% if @check_letters %>
+  <% if @check_dic %>
+    <p>Winner !  <%= @word.upcase %> is a valid english word !</p>
+  <% else %>
+    <p>Loser !  Can't you write a valid english word ?<br>But <%= @word.upcase %> could be one ...</p>
+  <% end %>
+<% else %>
+  <p>What are you doing ?! 💢 <br>
+    <%= @word.upcase %> can't be build out of
+    <% @letters.each do |letter| %>
+      <%= letter %> <%= ',' unless @letters.last == letter %>
+    <% end %>
+     !
+  </p>
+<% end %>
