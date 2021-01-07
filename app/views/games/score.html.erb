@@ -1,17 +1,18 @@
-<h1>That's the score</h1>
-
-<% if @check_letters %>
-  <% if @check_dic %>
-    <p>Winner !  <%= @word.upcase %> is a valid english word !</p>
+<h3 class="score center-txt">
+  <% if @check_letters %>
+    <% if @check_dic %>
+      Winner !  <%= @word.upcase %> is a valid english word !
+    <% else %>
+      Loser !  Can't you write a valid english word ?<br>But <%= @word.upcase %> could be one ...
+    <% end %>
   <% else %>
-    <p>Loser !  Can't you write a valid english word ?<br>But <%= @word.upcase %> could be one ...</p>
-  <% end %>
-<% else %>
-  <p>What are you doing ?! 💢 <br>
-    <%= @word.upcase %> can't be build out of
-    <% @letters.each do |letter| %>
-      <%= letter %> <%= ',' unless @letters.last == letter %>
+    What are you doing ?! 💢<br>
+    <%= @word.upcase %> can't be build out of<br>
+    <% @letters.each_with_index do |letter, idx| %>
+      <%= letter %> <%= ',' unless @letters.length - 1 == idx %>
     <% end %>
      !
-  </p>
-<% end %>
+  <% end %>
+</h3>
+
+<%= link_to "Play again !", "/new", class: "submit-btn-block block center-block center-txt" %>

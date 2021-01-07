@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,300&display=swap');
+
+body {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #0F0E17;
+  color: #fffffe;
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  font-size: 48px;
+}
+
+.center-txt {
+  text-align: center;
+}
